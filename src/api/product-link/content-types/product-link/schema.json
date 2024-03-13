@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_links",
+  "info": {
+    "singularName": "product-link",
+    "pluralName": "product-links",
+    "displayName": "product-links",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "nutritionists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::nutritionist.nutritionist",
+      "inversedBy": "product_links"
+    }
+  }
+}
