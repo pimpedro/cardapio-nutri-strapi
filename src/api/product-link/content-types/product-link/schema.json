@@ -21,11 +21,14 @@
       "target": "api::nutritionist.nutritionist",
       "inversedBy": "product_links"
     },
-    "supplier": {
-      "type": "string"
-    },
     "name": {
       "type": "string"
+    },
+    "supplier_name": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::supplier.supplier",
+      "inversedBy": "product_links"
     }
   }
 }

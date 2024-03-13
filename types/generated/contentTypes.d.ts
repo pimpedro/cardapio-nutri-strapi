@@ -845,8 +845,12 @@ export interface ApiProductLinkProductLink extends Schema.CollectionType {
       'manyToMany',
       'api::nutritionist.nutritionist'
     >;
-    supplier: Attribute.String;
     name: Attribute.String;
+    supplier_name: Attribute.Relation<
+      'api::product-link.product-link',
+      'manyToOne',
+      'api::supplier.supplier'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -858,6 +862,41 @@ export interface ApiProductLinkProductLink extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::product-link.product-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSupplierSupplier extends Schema.CollectionType {
+  collectionName: 'suppliers';
+  info: {
+    singularName: 'supplier';
+    pluralName: 'suppliers';
+    displayName: 'Supplier';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    product_links: Attribute.Relation<
+      'api::supplier.supplier',
+      'oneToMany',
+      'api::product-link.product-link'
+    >;
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::supplier.supplier',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::supplier.supplier',
       'oneToOne',
       'admin::user'
     > &
@@ -885,6 +924,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::nutritionist.nutritionist': ApiNutritionistNutritionist;
       'api::product-link.product-link': ApiProductLinkProductLink;
+      'api::supplier.supplier': ApiSupplierSupplier;
     }
   }
 }
