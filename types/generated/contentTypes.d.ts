@@ -845,6 +845,8 @@ export interface ApiProductLinkProductLink extends Schema.CollectionType {
       'manyToMany',
       'api::nutritionist.nutritionist'
     >;
+    supplier: Attribute.String;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

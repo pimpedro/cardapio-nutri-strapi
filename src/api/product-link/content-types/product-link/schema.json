@@ -20,6 +20,12 @@
       "relation": "manyToMany",
       "target": "api::nutritionist.nutritionist",
       "inversedBy": "product_links"
+    },
+    "supplier": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }
