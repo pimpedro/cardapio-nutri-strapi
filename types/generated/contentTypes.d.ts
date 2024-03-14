@@ -824,6 +824,37 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiCoverImageCoverImage extends Schema.CollectionType {
+  collectionName: 'cover_images';
+  info: {
+    singularName: 'cover-image';
+    pluralName: 'cover-images';
+    displayName: 'Cover-Image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cover-image.cover-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cover-image.cover-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNutritionistNutritionist extends Schema.CollectionType {
   collectionName: 'nutritionists';
   info: {
@@ -965,6 +996,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::category.category': ApiCategoryCategory;
+      'api::cover-image.cover-image': ApiCoverImageCoverImage;
       'api::nutritionist.nutritionist': ApiNutritionistNutritionist;
       'api::product-link.product-link': ApiProductLinkProductLink;
       'api::supplier.supplier': ApiSupplierSupplier;
