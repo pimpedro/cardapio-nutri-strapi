@@ -845,6 +845,7 @@ export interface ApiNutritionistNutritionist extends Schema.CollectionType {
       'api::product-link.product-link'
     >;
     slug: Attribute.UID;
+    cupomcode: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

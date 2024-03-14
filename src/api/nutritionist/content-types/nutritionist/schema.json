@@ -29,6 +29,9 @@
     },
     "slug": {
       "type": "uid"
+    },
+    "cupomcode": {
+      "type": "string"
     }
   }
 }
