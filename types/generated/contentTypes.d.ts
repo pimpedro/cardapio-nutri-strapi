@@ -794,6 +794,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -804,6 +805,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'oneToMany',
       'api::product-link.product-link'
     >;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
