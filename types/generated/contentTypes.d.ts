@@ -788,6 +788,40 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    product_links: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::product-link.product-link'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNutritionistNutritionist extends Schema.CollectionType {
   collectionName: 'nutritionists';
   info: {
@@ -850,6 +884,11 @@ export interface ApiProductLinkProductLink extends Schema.CollectionType {
       'api::product-link.product-link',
       'manyToOne',
       'api::supplier.supplier'
+    >;
+    category: Attribute.Relation<
+      'api::product-link.product-link',
+      'manyToOne',
+      'api::category.category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -922,6 +961,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::category.category': ApiCategoryCategory;
       'api::nutritionist.nutritionist': ApiNutritionistNutritionist;
       'api::product-link.product-link': ApiProductLinkProductLink;
       'api::supplier.supplier': ApiSupplierSupplier;

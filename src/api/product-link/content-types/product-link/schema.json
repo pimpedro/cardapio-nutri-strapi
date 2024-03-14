@@ -29,6 +29,12 @@
       "relation": "manyToOne",
       "target": "api::supplier.supplier",
       "inversedBy": "product_links"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "product_links"
     }
   }
 }
