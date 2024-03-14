@@ -806,6 +806,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'api::product-link.product-link'
     >;
     name: Attribute.String;
+    profile_image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
