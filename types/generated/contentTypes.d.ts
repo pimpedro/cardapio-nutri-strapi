@@ -806,6 +806,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'api::product-link.product-link'
     >;
     name: Attribute.String;
+    position: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
