@@ -800,13 +800,13 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    product_links: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::product-link.product-link'
-    >;
     name: Attribute.String;
     position: Attribute.Integer;
+    product_links: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::product-link.product-link'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -922,9 +922,9 @@ export interface ApiProductLinkProductLink extends Schema.CollectionType {
       'manyToOne',
       'api::supplier.supplier'
     >;
-    category: Attribute.Relation<
+    categories: Attribute.Relation<
       'api::product-link.product-link',
-      'manyToOne',
+      'manyToMany',
       'api::category.category'
     >;
     createdAt: Attribute.DateTime;

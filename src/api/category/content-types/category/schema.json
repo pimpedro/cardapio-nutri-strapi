@@ -12,17 +12,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "product_links": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product-link.product-link",
-      "mappedBy": "category"
-    },
     "name": {
       "type": "string"
     },
     "position": {
       "type": "integer"
+    },
+    "product_links": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-link.product-link",
+      "mappedBy": "categories"
     }
   }
 }

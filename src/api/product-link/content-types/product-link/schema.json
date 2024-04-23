@@ -30,9 +30,9 @@
       "target": "api::supplier.supplier",
       "inversedBy": "product_links"
     },
-    "category": {
+    "categories": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "product_links"
     }
