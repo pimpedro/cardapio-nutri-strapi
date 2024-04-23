@@ -879,6 +879,7 @@ export interface ApiNutritionistNutritionist extends Schema.CollectionType {
     slug: Attribute.UID;
     cupomcode: Attribute.String;
     profile_image: Attribute.Media;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
