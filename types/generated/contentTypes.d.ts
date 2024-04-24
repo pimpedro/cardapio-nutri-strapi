@@ -807,6 +807,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'manyToMany',
       'api::product-link.product-link'
     >;
+    nutritionists: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::nutritionist.nutritionist'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -880,6 +885,11 @@ export interface ApiNutritionistNutritionist extends Schema.CollectionType {
     cupomcode: Attribute.String;
     profile_image: Attribute.Media;
     description: Attribute.Text;
+    categories: Attribute.Relation<
+      'api::nutritionist.nutritionist',
+      'manyToMany',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

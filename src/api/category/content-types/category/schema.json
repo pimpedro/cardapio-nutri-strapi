@@ -23,6 +23,12 @@
       "relation": "manyToMany",
       "target": "api::product-link.product-link",
       "mappedBy": "categories"
+    },
+    "nutritionists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::nutritionist.nutritionist",
+      "mappedBy": "categories"
     }
   }
 }
