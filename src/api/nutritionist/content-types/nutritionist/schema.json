@@ -53,7 +53,7 @@
       "target": "api::category.category",
       "inversedBy": "nutritionists"
     },
-    "snack_bar": {
+    "discount": {
       "type": "string"
     }
   }
