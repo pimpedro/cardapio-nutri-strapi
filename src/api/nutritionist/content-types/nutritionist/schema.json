@@ -52,6 +52,9 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "nutritionists"
+    },
+    "snack_bar": {
+      "type": "string"
     }
   }
 }
