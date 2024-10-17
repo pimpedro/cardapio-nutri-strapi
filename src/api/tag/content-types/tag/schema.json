@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "singularName": "tag",
+    "pluralName": "tags",
+    "displayName": "Tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "product_links": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-link.product-link",
+      "inversedBy": "tags"
+    },
+    "tag_id": {
+      "type": "integer"
+    }
+  }
+}

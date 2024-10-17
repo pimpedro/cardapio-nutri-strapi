@@ -35,6 +35,15 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "product_links"
+    },
+    "product_id": {
+      "type": "integer"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "product_links"
     }
   }
 }

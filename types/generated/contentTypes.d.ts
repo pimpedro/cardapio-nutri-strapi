@@ -938,6 +938,12 @@ export interface ApiProductLinkProductLink extends Schema.CollectionType {
       'manyToMany',
       'api::category.category'
     >;
+    product_id: Attribute.Integer;
+    tags: Attribute.Relation<
+      'api::product-link.product-link',
+      'manyToMany',
+      'api::tag.tag'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -991,6 +997,34 @@ export interface ApiSupplierSupplier extends Schema.CollectionType {
   };
 }
 
+export interface ApiTagTag extends Schema.CollectionType {
+  collectionName: 'tags';
+  info: {
+    singularName: 'tag';
+    pluralName: 'tags';
+    displayName: 'Tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    product_links: Attribute.Relation<
+      'api::tag.tag',
+      'manyToMany',
+      'api::product-link.product-link'
+    >;
+    tag_id: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1014,6 +1048,7 @@ declare module '@strapi/types' {
       'api::nutritionist.nutritionist': ApiNutritionistNutritionist;
       'api::product-link.product-link': ApiProductLinkProductLink;
       'api::supplier.supplier': ApiSupplierSupplier;
+      'api::tag.tag': ApiTagTag;
     }
   }
 }
