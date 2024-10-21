@@ -1003,6 +1003,7 @@ export interface ApiTagTag extends Schema.CollectionType {
     singularName: 'tag';
     pluralName: 'tags';
     displayName: 'Tag';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1015,6 +1016,7 @@ export interface ApiTagTag extends Schema.CollectionType {
       'api::product-link.product-link'
     >;
     tag_id: Attribute.Integer;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
